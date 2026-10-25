@@ -10,11 +10,13 @@ public class ObstacleSpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime; // タイマーを更新
-
-        if(timer >= spawnRate)
+        if (!GameManager.instance.isGameOver)
         {
-            Instantiate(obstaclePrefab, new Vector3(10, Random.Range(-2f, 2f), 0), Quaternion.identity); // 障害物を生成
-            timer = 0f; // タイマーをリセット
+            if (timer >= spawnRate)
+            {
+                Instantiate(obstaclePrefab, new Vector3(10, Random.Range(-1.5f, 1.5f), 0), Quaternion.identity); // 障害物を生成
+                timer = 0f; // タイマーをリセット
+            }
         }
     }
 }
