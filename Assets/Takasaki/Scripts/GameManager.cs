@@ -27,5 +27,14 @@ public class GameManager : MonoBehaviour
         {
             score += 1; // Increase score over time
         }
+        else if (isGameOver)
+        {
+            Invoke("ResetScore", 1.0f);
+        }
+    }
+
+    private void ResetScore()
+    {
+        score = 0;
     }
 }
